@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html style="height: 100%;" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="container">
+  <!--  left side-->
+  <div class="content-container">
+    <div class="step-list-sidebar">
+      <div class="step-button step-btn-1 active" onclick="addClass('step-btn-1'); nextPage('subscription-section')">
+        <div class="step">1</div>
+        <p class="step-button-p"> STEP 1<br>
+          <span style="color: white">YOUR INFO</span>
+        </p>
+      </div>
+      <div class="step-button step-btn-2" onclick="addClass('step-btn-2'); nextPage('plan-selection');">
+        <div class="step">2</div>
+        <p class="step-button-p"> STEP 2<br>
+          <span style="color: white">SELECT PLAN</span>
+        </p>
+      </div>
+      <div class="step-button step-btn-3" onclick="addClass('step-btn-3'); nextPage('pick-selection')">
+        <div class="step">3</div>
+        <p class="step-button-p"> STEP 3<br>
+          <span style="color: white">ADD-ONS</span>
+        </p>
+      </div>
+      <div class="step-button step-btn-4" onclick="addClass('step-btn-4'); nextPage('finishing-selection')">
+        <div class="step">4</div>
+        <p class="step-button-p"> STEP 4<br>
+          <span style="color: white">SUMMARY</span>
+        </p>
+      </div>
+    </div>
+
+    <!--    step one-->
+    <div class="step-division subscription-section active-step">
+      <p class="personal-info">Personal info</p>
+      <p class="personal-info-description">Please provide your name, email address, and phone number.</p>
+      <div>
+        <form id="myForm">
+          <div class="input-field-div">
+            <div class="input-field-label">
+              <label for="name">Name</label><br>
+              <div id="nameError" class="error"></div>
+            </div>
+            <input type="text" class="personal-info-inputs name-input" id="name" name="name"
+                   placeholder="e.g. Stephen King"
+                   required>
+          </div>
+          <div class="input-field-div">
+            <div class="input-field-label">
+              <label for="email">Email Address</label>
+              <div id="emailError" class="error"></div>
+            </div>
+            <input type="email" class="personal-info-inputs email-input" id="email" name="email"
+                   placeholder="e.g. stephenking@lorem.com" required>
+          </div>
+          <div class="input-field-div">
+            <div class="input-field-label">
+              <label for="phone">Phone Number</label>
+              <div id="phoneError" class="error"></div>
+            </div>
+            <input type="text" class="personal-info-inputs phone-input" id="phone" name="phone"
+                   placeholder="e.g. +1 234 567 890" required>
+          </div>
+          <div class="next-btn-div">
+            <button type="button" class="next-step-button" onclick="validateForm( 'step-btn-2', 'plan-selection')">Next
+              Step
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--    step two -->
+    <div class="step-division plan-selection de-active">
+      <p class="personal-info">Select your plan</p>
+      <p class="personal-info-description">You have the option of monthly or yearly billing.</p><br><br>
+      <div class="select-plan">
+        <div class="img-arcade-advanced-pro img-1 active" onclick="addClassImg('img-1')">
+          <img src="assets/images/icon-arcade.svg" alt="icon-arcade">
+          <p class="arcade-advanced-pro">Arcade</p>
+          <P class="arcade-advanced-pro-description"> $9/mo</P>
+          <p class="free-offer-text"></p>
+        </div>
+
+        <div class="img-arcade-advanced-pro img-2" onclick="addClassImg('img-2')">
+          <img src="assets/images/icon-advanced.svg" alt="icon-advanced">
+          <p class="arcade-advanced-pro">Advanced</p>
+          <p class="arcade-advanced-pro-description">$12/mo</p>
+          <p class="free-offer-text"></p>
+        </div>
+
+        <div class="img-arcade-advanced-pro img-3" onclick="addClassImg('img-3')">
+          <img src="assets/images/icon-pro.svg" alt="icon-pro">
+          <p class="arcade-advanced-pro">pro</p>
+          <p class="arcade-advanced-pro-description">$15/mo</p>
+          <p class="free-offer-text"></p>
+        </div>
+      </div>
+
+      <!-- Toggle Container -->
+      <div class="billing-toggle">
+        <span class="toggle-label" id="monthlyLabel">Monthly</span>
+        <label class="switch">
+          <input type="checkbox" id="billingToggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="toggle-label" id="yearlyLabel">Yearly</span>
+      </div>
+
+
+      <div class="plan-next-btn-div">
+        <button type="button" class="go-back-button" style="color:hsl(213, 96%, 18%)"
+                onclick="nextPage('subscription-section'); addClass('step-btn-1')">Go
+          Back
+        </button>
+        <button type="button" class="next-step-button" onclick="nextPage('pick-selection'); addClass('step-btn-3')">Next
+          Step
+        </button>
+      </div>
+    </div>
+
+    <!--step three-->
+    <div class="step-division pick-selection de-active">
+      <p class="personal-info">Pick add-ons</p>
+      <p class="personal-info-description">Add-ons help enhance your gaming experience.</p><br>
+      <div class="select-pick">
+        <form>
+          <label for="service" class="checkbox-input checkbox-1">
+            <input type="checkbox" id="service" name="service" value="service"
+                   onchange="addCheckbox('checkbox-1', this.checked)">
+            <div class="checkbox-input-div">
+              <div>Online service<br><span style="color: hsl(231, 11%, 63%)">Access to multiplayer games</span></div>
+              <!--              <span class="checkbox-price" data-monthly="+$1/mo" data-yearly="+$10/yr">+$1/mo</span>-->
+              <span class="checkbox-price">+$1/mo</span>
+            </div>
+          </label>
+
+          <label for="storage" class="checkbox-input checkbox-2">
+            <input type="checkbox" id="storage" name="storage" value="storage"
+                   onchange="addCheckbox('checkbox-2', this.checked)">
+            <div class="checkbox-input-div">
+              <div>Larger storage<br><span style="color: hsl(231, 11%, 63%)">Extra 1TB of cloud save</span></div>
+              <!--              <span class="checkbox-price" data-monthly="+$2/mo" data-yearly="+$20/yr">+$2/mo</span>-->
+              <span class="checkbox-price">+$2/mo</span>
+            </div>
+          </label>
+
+          <label for="Profile" class="checkbox-input checkbox-3">
+            <input type="checkbox" id="Profile" name="Profile" value="Profile"
+                   onchange="addCheckbox('checkbox-3', this.checked)">
+            <div class="checkbox-input-div">
+              <div>Customizable Profile<br><span style="color: hsl(231, 11%, 63%)">Custom theme on your profile</span>
+              </div>
+              <!--              <span class="checkbox-price" data-monthly="+$2/mo" data-yearly="+$20/yr">+$2/mo</span>-->
+              <span class="checkbox-price">+$/mo</span>
+            </div>
+          </label>
+        </form>
+      </div>
+      <div class="plan-next-btn-div">
+        <button type="button" class="go-back-button"
+                onclick="nextPage('plan-selection'); addClass('step-btn-2')">Go
+          Back
+        </button>
+        <button type="button" class="next-step-button"
+                onclick="nextPage('finishing-selection'); addClass('step-btn-4')">Next
+          Step
+        </button>
+      </div>
+    </div>
+
+    <!--    step four-->
+    <div class="step-division finishing-selection de-active">
+      <p class="personal-info">Finishing up</p>
+      <p class="personal-info-description">Double-check everything looks OK before confirming.</p>
+      <form class="finishing-arcade">
+        <div class="finishing-label-div">
+          <div class="arcade-finishing">arcade (Monthly) <br> <span class="change-finishing">change</span></div>
+          <span class="arcade-price">$9/mo</span>
+        </div>
+        <hr>
+        <div class="finishing-label-div">
+          <div class="online-larger-total-finishing">Online service</div>
+          <span class="online-larger-price">+$1/mo</span>
+        </div>
+        <div class="finishing-label-div">
+          <div class="online-larger-total-finishing">Larger storage</div>
+          <span class="online-larger-price">+$2/mo</span>
+        </div>
+      </form>
+      <div class="finishing-total">
+        <div class="finishing-label-div">
+          <div class="online-larger-total-finishing"> Total (per month)</div>
+          <span class="total-price">+$12/mo</span>
+        </div>
+      </div>
+      <div class="plan-next-btn-div">
+        <button type="button" class="go-back-button"
+                onclick="nextPage('pick-selection'); addClass('step-btn-3')">Go
+          Back
+        </button>
+        <button type="button" class="confirm-step-button"
+                onclick="nextPage('thank-you')">Confirm
+        </button>
+      </div>
+    </div>
+
+    <!--    final step-->
+    <div class="step-division thank-you de-active">
+      <div class="img-thank-you">
+        <img src="assets/images/icon-thank-you.svg" alt="icon-thank-you">
+      </div>
+      <div>
+        <p class="title-thank-you">Thank you!</p>
+        <p class="thank-you-des">Thanks for confirming your subscription! We hope you have<br>fun
+          using our platform. If you ever need support, please feel<br>free
+          to email us at support@loremgaming.com.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

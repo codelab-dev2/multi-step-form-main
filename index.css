@@ -1,0 +1,486 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-color: hsl(218, 100%, 97%);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 950px;
+  border-radius: 15px;
+  background-color: white;
+  height: 600px;
+  box-shadow: 2px 2px 16px rgba(194, 194, 194, 0.49);
+  padding: 30px;
+  gap: 10px
+}
+
+.step-list-sidebar {
+  width: 200px;
+  height: calc(100% - 80px);
+  background-image: url('assets/images/bg-sidebar-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 30px;
+  background-position: bottom;
+
+
+}
+
+.step-button {
+  padding: 0px;
+  /*background-color: brown;*/
+  width: calc(100% - 10px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  line-height: 22px;
+  color: white;
+  cursor: pointer;
+  pointer-events: none; /* one by one button */
+}
+
+/*one bt one button click*/
+.step-button.active,
+.step-button.completed {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/**/
+.step-button-p {
+  margin: 0px;
+  color: hsl(228, 100%, 84%);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+}
+
+.step {
+  padding: 0px;
+  width: 40px;
+  height: 40px;
+  /*background-color: green;*/
+  text-align: center;
+  border-radius: 100px;
+  border: 1px solid white;
+  line-height: 40px;
+  font-size: 20px;
+}
+
+.step-division {
+  width: 60%;
+  height: 80%;
+}
+
+.subscription-section {
+  /*padding: 100px 0px 0px 100px;*/
+  /*margin-top: 20px;*/
+}
+
+form {
+  width: calc(100% - 57px);
+}
+
+.personal-info {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Ubuntu", sans-serif;
+  margin: 0px;
+  line-height: 30px;
+  color: hsl(213, 96%, 18%);
+}
+
+.personal-info-description {
+  width: calc(100% - 60px);
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  color: hsl(231, 11%, 63%);
+  margin-bottom: 15px;
+}
+
+input[type=text], input[type=email], select {
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: hsl(231, 11%, 63%);
+  cursor: pointer;
+}
+
+input[type=text]:hover, input[type=email]:hover {
+  border: 1px solid blue;
+}
+
+
+label {
+  color: hsl(213, 96%, 18%);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+.input-field-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-field-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.next-btn-div {
+  width: 100%;
+  margin-top: 134px;
+  display: flex;
+  justify-content: end;
+}
+
+.next-step-button {
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  /*align-self: end;*/
+}
+
+.active .step {
+  background-color: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+}
+
+.error {
+  height: 12px;
+  color: red;
+  font-size: 12px;
+  text-align: right;
+  font-family: "Ubuntu", sans-serif;
+
+}
+
+.input-field-div .name-error, .input-field-div .phone-error {
+  border: 1px solid red;
+}
+
+.input-field-div .email-error {
+  border: 1px solid red;
+}
+
+/*step two*/
+
+.content-container .active-step {
+  display: block;
+}
+
+.content-container .de-active {
+  display: none;
+}
+
+.img-arcade-advanced-pro {
+  width: 115px;
+  /*height: 155px;*/
+  border: 1px solid hsl(231, 11%, 63%);
+  float: left;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/*.img-arcade-advanced-pro:hover{*/
+/*  border: 1px solid blue;*/
+/*}*/
+
+.arcade-advanced-pro {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+  line-height: 2px;
+  margin-top: 40px;
+
+}
+
+.arcade-advanced-pro-description {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+  margin: 8px 0px 8px 0px;
+}
+
+.free-offer-text {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: hsl(213, 96%, 18%);
+  margin: 0px;
+}
+
+.select-plan .active {
+  border: 1px solid blue;
+}
+
+.billing-toggle {
+  margin-top: 217px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: hsl(213, 96%, 18%);
+  border: 2px solid none;
+  width: 510px;
+  background-color: hsl(218, 100%, 97%);
+  padding: 7px 0px 7px 0px;
+  border-radius: 10px;
+}
+
+.toggle-label {
+  color: hsl(231, 11%, 63%);
+  transition: color 0.3s;
+}
+
+.toggle-label.active {
+  color: hsl(213, 96%, 18%);
+}
+
+
+/* Toggle switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(213, 96%, 18%);
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: hsl(213, 96%, 18%);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.plan-next-btn-div {
+  width: 90%;
+  margin-top: 125px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.go-back-button {
+  background-color: white;
+  border: none;
+  color: hsl(231, 11%, 63%);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/*step three*/
+.checkbox-input {
+  border: 1px solid hsl(231, 11%, 63%);
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  line-height: 22px;
+  align-items: center;
+  /*justify-content: space-between;*/
+}
+
+.checkbox-input-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.checkbox-input input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-price {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  color: blue;
+  padding-right: 10px;
+}
+
+.select-pick .active {
+  border: 1px solid blue;
+  background-color: hsl(218, 100%, 97%);
+}
+
+
+/*step four*/
+
+.finishing-arcade {
+  width: 83%;
+  margin-top: 35px;
+  padding: 20px;
+  background-color: hsl(218, 100%, 97%);
+  border: none;
+  border-radius: 10px;
+}
+
+.finishing-arcade {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: hsl(213, 96%, 18%);
+}
+
+.arcade-price {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: hsl(213, 96%, 18%);
+}
+
+.change-finishing {
+  color: hsl(243, 100%, 62%);
+  font-family: "Ubuntu", sans-serif;
+  font-width: 300;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+hr {
+  background-color: hsl(231, 11%, 63%);
+  margin-top: 24px;
+}
+
+.finishing-label-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.online-larger-total-finishing {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: hsl(231, 11%, 63%);
+  margin: 10px 0px 10px 0px;
+}
+
+.online-larger-price {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+
+.finishing-total {
+  width: 83%;
+  padding: 20px;
+}
+
+.total-price {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: hsl(243, 100%, 62%);
+}
+
+.confirm-step-button {
+  background-color: hsl(243, 100%, 62%);
+  color: white;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*final step*/
+.img-thank-you {
+  width: 88%;
+  display: flex;
+  justify-content: center;
+  margin-top: 130px;
+}
+
+.title-thank-you {
+  width: 88%;
+  text-align: center;
+  margin-top: 35px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: hsl(213, 96%, 18%);
+  margin-bottom: 0px;
+}
+
+.thank-you-des {
+  width: 88%;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: hsl(231, 11%, 63%);
+  line-height: 25px;
+}
